@@ -1,0 +1,16 @@
+from random import randrange as r
+from time import time as t
+
+
+Q = int(input('Enter the number of questions you want to practice: '))
+max_num = int(input('Enter the max number you want to practice: '))
+score = 0
+start = t()
+for i in range(Q):
+    num1, num2 = r(1, max_num+1), r(1, max_num+1)
+    ans = num1 * num2
+    u_ans = int(input(f'Multiplication of {num1} X {num2} is: '))
+    if ans == u_ans:
+        score += 1
+    end = t()
+print(f'Thanks for playing the multiplication game! \nYou scored {score} out of {Q} which is {(score/Q)*100}% correct, solved it in {round((end-start), 1)} seconds and {round(((end-start)/Q),1)} seconds per question.')
